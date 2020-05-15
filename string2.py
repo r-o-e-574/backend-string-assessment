@@ -4,7 +4,7 @@ Kenzie assignment: String2
 """
 # Your name, plus anyone who helped you with this assignment.
 # Give credit where credit is due.
-__author__ = "???"
+__author__ = "Ruben Espino and got help from Chris Warren"
 
 # Copyright 2010 Google Inc.
 # Licensed under the Apache License, Version 2.0
@@ -23,8 +23,16 @@ __author__ = "???"
 
 
 def verbing(s):
-    # your code here
-    return
+    if len(s) > 2:
+        # if the end of the string has ing add ly to the end
+        if s[-3:] == 'ing':
+          return s + 'ly'
+        # otherwise add ing
+        else:
+          return s + 'ing'
+      #leave it alone and return it as is
+    else:
+        return s
 
 
 # E. not_bad
@@ -37,8 +45,14 @@ def verbing(s):
 
 
 def not_bad(s):
-    # your code here
-    return
+    #making 2 variables one with not one with bad
+    notStr = s.find('not')
+    badStr = s.find('bad')
+    #code to run that
+    if badStr > notStr:
+        s = s.replace(s[notStr:(badStr + 3)], "good")
+    return s
+    
 
 
 # F. front_back
@@ -52,8 +66,23 @@ def not_bad(s):
 
 
 def front_back(a, b):
-    # your code here
-    return
+    isStrA = len(a)
+    isStrB = len(b)
+    if isStrA % 2 == 0:
+        isStrALen = isStrA // 2
+    else:
+        isStrALen = (isStrA // 2) + 1
+    if isStrB % 2 == 0:
+        isStrBLen = isStrB // 2
+    else:
+        isStrBLen = (isStrB // 2) + 1
+        
+    isStrAFront = a[0:isStrALen]
+    isStrABack = a[isStrALen:]
+    isStrBFront = b[0:isStrBLen]
+    isStrBBack = b[isStrBLen:]
+    
+    return isStrAFront + isStrBFront + isStrABack + isStrBBack
 
 
 # Provided simple test() function used in main() to print
